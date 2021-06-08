@@ -17,39 +17,39 @@
 
 
 // generatore univoco random del pc
-var listaNumeriPc =[];
-while(listaNumeriPc.length < 16){
-    var numeroRandomPc = Math.floor(Math.random() * 99) + 1;
-    if(listaNumeriPc.indexOf(numeroRandomPc) === -1) listaNumeriPc.push(numeroRandomPc);
-}
-console.log(listaNumeriPc);
+var start = document.getElementById('play');
 
-// richiesta all'utente di 84 numeri casuali inseriti uno alla volta
-var listaNumeriUtente =[];
-var condizione = true;
-while(listaNumeriUtente.length < 5 && condizione){
-    var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
-    if(numeroUtente != 0 && numeroUtente < 101 && listaNumeriUtente.indexOf(numeroUtente) === -1){
-        listaNumeriUtente.push(numeroUtente);        
-    } else{
-        alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
-    }  
-    
-    if(listaNumeriPc.includes(numeroUtente)){        
-        alert('Hai perso!');  
-        console.log((listaNumeriUtente.length-1) + " punti");
-        condizione = false; 
-    }         
+start.addEventListener("click", function(){
+    var listaNumeriPc =[];
+    while(listaNumeriPc.length < 16){
+        var numeroRandomPc = Math.floor(Math.random() * 99) + 1;
+        if(listaNumeriPc.indexOf(numeroRandomPc) === -1) listaNumeriPc.push(numeroRandomPc);
+    }
+    console.log(listaNumeriPc);
 
-    
-}
+    // richiesta all'utente di 84 numeri casuali inseriti uno alla volta
+    var listaNumeriUtente =[];
+    var condizione = true;
+    while(listaNumeriUtente.length < 84 && condizione){
+        var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
+        if(numeroUtente != 0 && numeroUtente < 101 && listaNumeriUtente.indexOf(numeroUtente) === -1){
+            listaNumeriUtente.push(numeroUtente);
+        } else{
+            alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
+        }  
+        
+        if(listaNumeriPc.includes(numeroUtente)){        
+            alert('Hai perso!');  
+            console.log((listaNumeriUtente.length-1) + " punti");
+            condizione = false; 
+        }     
+    }
 
-console.log(listaNumeriUtente);
+    if(listaNumeriUtente.length == (100 - listaNumeriPc.length)){
+        alert('Hai vinto');
+    } 
 
+    console.log(listaNumeriUtente);  
 
+});
 
-    
-  
-                                   
-
-    
