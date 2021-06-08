@@ -16,10 +16,11 @@
 // cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 
-// generatore univoco random del pc
 var start = document.getElementById('play');
-
 start.addEventListener("click", function(){
+
+    / --- sezione pc --- /
+    // generatore numeri univoci random del pc
     var listaNumeriPc =[];
     while(listaNumeriPc.length < 16){
         var numeroRandomPc = Math.floor(Math.random() * 99) + 1;
@@ -27,17 +28,21 @@ start.addEventListener("click", function(){
     }
     console.log(listaNumeriPc);
 
-    // richiesta all'utente di 84 numeri casuali inseriti uno alla volta
+    / --- sezione utente --- /
     var listaNumeriUtente =[];
     var condizione = true;
     while(listaNumeriUtente.length < 84 && condizione){
+        // richiesta all'utente di 84 numeri casuali inseriti uno alla volta
         var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
+        
+        // condizioni per accettare il numero inserito dall'utente
         if(numeroUtente != 0 && numeroUtente < 101 && listaNumeriUtente.indexOf(numeroUtente) === -1){
             listaNumeriUtente.push(numeroUtente);
         } else{
             alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
         }  
         
+        // comunicazione del punteggio
         if(listaNumeriPc.includes(numeroUtente)){        
             alert('Hai perso!');  
             console.log((listaNumeriUtente.length-1) + " punti");
@@ -45,11 +50,11 @@ start.addEventListener("click", function(){
         }     
     }
 
+    // comunicazione della vittoria
     if(listaNumeriUtente.length == (100 - listaNumeriPc.length)){
         alert('Hai vinto');
     } 
 
-    console.log(listaNumeriUtente);  
-
+    console.log(listaNumeriUtente); 
 });
 
