@@ -27,20 +27,25 @@ console.log(listaNumeriPc);
 // richiesta all'utente di 84 numeri casuali inseriti uno alla volta
 var listaNumeriUtente =[];
 var i = 0;
-while(listaNumeriUtente.length < 5){
+var condizione = true;
+while(listaNumeriUtente.length < 5 & condizione){
     var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
-    if(numeroUtente != 0 && numeroUtente < 101 && !listaNumeriUtente.includes(listaNumeriUtente)){
-        listaNumeriUtente.push(numeroUtente);
-        
+    if(numeroUtente != 0 && numeroUtente < 101 && !listaNumeriUtente.includes(listaNumeriUtente) && listaNumeriUtente.indexOf(numeroUtente) === -1){
+        listaNumeriUtente.push(numeroUtente);        
     } else{
         alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
     }  
 
     if (numeroUtente === listaNumeriPc[i]){
-        alert('Hai perso!');   
-
-    }      
+        alert('Hai perso!');  
+        condizione = false;              
+    } 
+        
+        
 }
+
+
+
 console.log(listaNumeriUtente);
 
     
