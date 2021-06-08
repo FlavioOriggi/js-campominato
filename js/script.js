@@ -38,15 +38,21 @@ while(listaNumeriUtente.length < 5 & condizione){
 
     if (numeroUtente === listaNumeriPc[i]){
         alert('Hai perso!');  
+        console.log((listaNumeriUtente.length-1) + " punti");
         condizione = false;              
-    } 
-        
-        
+    }     
+    
+    
+    
 }
-
-
-
 console.log(listaNumeriUtente);
+
+// if (numeroUtente != listaNumeriPc){
+//     alert('Hai vinto!');  
+                  
+// }
+
+
 
     
   
