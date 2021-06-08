@@ -30,7 +30,7 @@ var i = 0;
 var condizione = true;
 while(listaNumeriUtente.length < 5 & condizione){
     var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
-    if(numeroUtente != 0 && numeroUtente < 101 && !listaNumeriUtente.includes(listaNumeriUtente) && listaNumeriUtente.indexOf(numeroUtente) === -1){
+    if(numeroUtente != 0 && numeroUtente < 101 && listaNumeriUtente.indexOf(numeroUtente) === -1){
         listaNumeriUtente.push(numeroUtente);        
     } else{
         alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
