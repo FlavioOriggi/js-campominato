@@ -11,19 +11,59 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <button id="play">Gioca</button>
-    <div id="esitoGara"></div>
+    <div class="container">
+        <div class="row text-center flex-wrap align-item-center"> 
+            <div class="col">
 
-    <div id="vittoria" class="d-none">
-        <img src="img/vittoria.gif" alt="">
-        <h1 id="testo-vittoria"></h1>
+                <!-- spazio top extra -->
+                <div class="row">
+                    <div class="col my-5"></div>
+                </div>
+
+                <!-- sezione titolo -->               
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <h1 class="rounded text-uppercase text-green fw-bold  p-1 my-5 bg-light">sfida l'intelligenza del pc al nostro campo minato!</h1>
+                    </div>                    
+                    <div class="col-1"></div>
+                </div>
+
+                <!-- sezione bottone -->                
+                <div class="row">
+                    <div class="col">
+                        <button id="play" class="btn btn-primary my-5 py-4 px-5 fs-5 text-white rounded">Gioca</button>
+                    </div>
+                </div>                
+        
+
+                <!-- sezione vittoria -->
+                <div class="row">
+                    <div class="col-2 "></div>
+                    <div class="col-8">
+                        <div id="vittoria" class="d-none ombra mt-5">
+                            <img src="img/vittoria.gif" alt="">
+                            <h2 id="testo-vittoria" class="fw-bold"></h2>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+
+                <!-- sezione sconfitta -->
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div id="sconfitta" class="d-none ombra mt-5">
+                            <img class="gif-img" src="img/sconfitta.gif" alt="">
+                            <h2 id="testo-sconfitta" class="bg-light p-3 fw-bold"></h2>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>              
+            </div>        
+        </div>        
     </div>
 
-    <div id="sconfitta" class="d-none">
-        <img src="img/sconfitta.gif" alt="">
-        <h2 id="testo-sconfitta"></h2>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>   

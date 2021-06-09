@@ -5,11 +5,12 @@ body{
     background-repeat: no-repeat;
 }
 
-
-.hidden{
-    display: none;
+.ombra{   
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);    
 }
 
-.show{
-    display: block;
+
+
+.gif-img{
+    width: 100%;
 }

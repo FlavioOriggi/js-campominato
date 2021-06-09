@@ -27,17 +27,25 @@ start.addEventListener("click", function(){
     
     
     / --- sezione bonus --- /
-    var numMax = 100;
+    var numMaxRandom = 100;
+    var numMaxTentaivi = 84; // creata perchè, se si cambia solo la variabile del range
+                             // dei numeri generati random dal pc, si potrà andare ad inserire tutti
+                             // i numeri rimanenti da 80(e 50) a 100 ottenendo punteggio (e 
+                             // rendendolo piu facile)
     var scelta = false;
     // richiedo all’utente una difficoltà che cambia il range di numeri casuali
     while (!scelta){
         scelta = prompt('scegli un livello da 0 a 2, dove Zero sarà il più semplice e Due il piu difficile');        
         if (scelta == 0){
-            numMax = 100;            
+            numMaxRandom = 100; 
+            numMaxTentaivi = 84;          
         } else if(scelta == 1) {
-            numMax = 80;            
+            numMaxRandom = 80; 
+            numMaxTentaivi = 64;         
+
         } else if(scelta == 2) {  
-            numMax = 50;            
+            numMaxRandom = 50; 
+            numMaxTentaivi = 34;         
         } else{
             alert('per scegliere il livello, il numero inserito deve essere tra 0 e 2.');
             return false;
@@ -48,7 +56,7 @@ start.addEventListener("click", function(){
     // generatore numeri univoci random del pc
     var listaNumeriPc =[];
     while(listaNumeriPc.length < 16){
-        var numeroRandomPc = Math.floor(Math.random() * numMax) + 1;
+        var numeroRandomPc = Math.floor(Math.random() * numMaxRandom) + 1;
         if(listaNumeriPc.indexOf(numeroRandomPc) === -1) listaNumeriPc.push(numeroRandomPc);
     }
     console.log(listaNumeriPc);
@@ -56,21 +64,21 @@ start.addEventListener("click", function(){
     / --- sezione utente --- /
     var listaNumeriUtente =[];
     var condizione = true;
-    while(listaNumeriUtente.length < 84 && condizione){
-        // richiesta all'utente di 84 numeri casuali inseriti uno alla volta
-        var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e 100'));
+    while(listaNumeriUtente.length < numMaxTentaivi && condizione){
+        // richiesta all'utente di (x - 16) numeri casuali inseriti uno alla volta
+        var numeroUtente = parseInt(prompt('inserisci un numero univoco compreso tra 1 e ' + numMaxRandom ));
         
         // condizioni per accettare il numero inserito dall'utente
-        if(numeroUtente != 0 && numeroUtente < 101 && listaNumeriUtente.indexOf(numeroUtente) === -1){
+        if(numeroUtente != 0 && numeroUtente <= numMaxRandom && listaNumeriUtente.indexOf(numeroUtente) === -1){
             listaNumeriUtente.push(numeroUtente);
         } else{
-            alert('devi inserire un numero, senza mai ripeterlo, tra 1 e 100');
+            alert('devi inserire un numero, senza mai ripeterlo, tra 1 e ' + numMaxRandom);
         }  
         
         // comunicazione del punteggio
         if(listaNumeriPc.includes(numeroUtente)){        
             document.getElementById('sconfitta').classList.remove("d-none");
-            document.getElementById('testo-sconfitta').innerHTML = "Hai totalizzato " + (listaNumeriUtente.length-1) + " punti";
+            document.getElementById('testo-sconfitta').innerHTML = "Hai totalizzato " + (listaNumeriUtente.length-1) + " punti!";
             condizione = false;
  
             // console.log((listaNumeriUtente.length-1) + " punti");             
@@ -78,7 +86,7 @@ start.addEventListener("click", function(){
     }
 
     // comunicazione della vittoria
-    if(listaNumeriUtente.length == (100 - listaNumeriPc.length)){
+    if(listaNumeriUtente.length == (numMaxRandom - listaNumeriPc.length)){
         document.getElementById('vittoria').classList.remove("d-none");
         document.getElementById('testo-sconfitta').innerHTML = "Complimenti, hai vinto!";
 
