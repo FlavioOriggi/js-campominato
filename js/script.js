@@ -88,7 +88,7 @@ start.addEventListener("click", function(){
     // comunicazione della vittoria
     if(listaNumeriUtente.length == (numMaxRandom - listaNumeriPc.length)){
         document.getElementById('vittoria').classList.remove("d-none");
-        document.getElementById('testo-sconfitta').innerHTML = "Complimenti, hai vinto!";
+        document.getElementById('testo-vittoria').innerHTML = "Complimenti, hai vinto!";
 
     } 
 
