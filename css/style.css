@@ -1,0 +1,15 @@
+
+body{
+    background-image: url(../img/campo_minato_windows.png);
+    background-size:cover;    
+    background-repeat: no-repeat;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}

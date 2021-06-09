@@ -69,15 +69,19 @@ start.addEventListener("click", function(){
         
         // comunicazione del punteggio
         if(listaNumeriPc.includes(numeroUtente)){        
-            alert('Hai perso!');  
-            console.log((listaNumeriUtente.length-1) + " punti");
-            condizione = false; 
+            document.getElementById('sconfitta').classList.remove("d-none");
+            document.getElementById('testo-sconfitta').innerHTML = "Hai totalizzato " + (listaNumeriUtente.length-1) + " punti";
+            condizione = false;
+ 
+            // console.log((listaNumeriUtente.length-1) + " punti");             
         }     
     }
 
     // comunicazione della vittoria
     if(listaNumeriUtente.length == (100 - listaNumeriPc.length)){
-        alert('Hai vinto');
+        document.getElementById('vittoria').classList.remove("d-none");
+        document.getElementById('testo-sconfitta').innerHTML = "Complimenti, hai vinto!";
+
     } 
 
     console.log(listaNumeriUtente); 
